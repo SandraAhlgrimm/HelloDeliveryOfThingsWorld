@@ -66,6 +66,7 @@ import com.android.build.OutputFile
  */
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -104,10 +105,20 @@ android {
             include "armeabi-v7a", "x86"
         }
     }
+    signingConfigs {
+            release {
+                storeFile file('my-release-key.keystore')
+                storePassword 'sonicftw'
+                keyAlias 'my-key-alias'
+                keyPassword 'sonicftw'
+            }
+        }
     buildTypes {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            buildConfigField "String", "CODEPUSH_KEY", '"_KeaZgmZ80oFIM4vHLt3DAAvHCskE1AuUJ8AG"'
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
@@ -126,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-code-push')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules

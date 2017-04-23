@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import codePush from "react-native-code-push";
 import {
   AppRegistry,
   StyleSheet,
@@ -12,17 +13,22 @@ import {
   View
 } from 'react-native';
 
-export default class HelloDeliveryOfThingsWorld extends Component {
+let codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
+
+class HelloDeliveryOfThingsWorld extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Hello World!
+          Hello DevOps tadaaaaaa World!!!!
         </Text>
       </View>
     );
   }
 }
+
+HelloDeliveryOfThingsWorld = codePush(codePushOptions)(HelloDeliveryOfThingsWorld);
+export default HelloDeliveryOfThingsWorld;
 
 const styles = StyleSheet.create({
   container: {

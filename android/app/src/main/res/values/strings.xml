@@ -1,3 +1,4 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">_KeaZgmZ80oFIM4vHLt3DAAvHCskE1AuUJ8AG</string>
     <string name="app_name">HelloDeliveryOfThingsWorld</string>
 </resources>
