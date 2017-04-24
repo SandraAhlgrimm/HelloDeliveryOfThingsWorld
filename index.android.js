@@ -20,8 +20,9 @@ class HelloDeliveryOfThingsWorld extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Hello DevOps tadaaaaaa World!!!!
+          Hello World!!!!
         </Text>
+        <Button title="Awesome Button"/>
       </View>
     );
   }
